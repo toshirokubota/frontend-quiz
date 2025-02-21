@@ -100,7 +100,7 @@ const populate_question = () => {
 const populate_answer = (q, choice) => {
     let choice_idx = choice.charCodeAt(0) - 'A'.charCodeAt(0);
     let answer_idx = correctAnswerIndex(q);
-    console.log('choice-idx:', choice_idx, 'answer-idx:', answer_idx);
+    //console.log('choice-idx:', choice_idx, 'answer-idx:', answer_idx);
     if(answer_idx == choice_idx) { //answered correctly
         labels[answer_idx].classList.add('correct');
         num_correct ++;
