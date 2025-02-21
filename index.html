@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="./main.js"></script>
+  
+  <title>Frontend Mentor | Frontend quiz app</title>
+</head>
+<body>
+  <nav>
+
+  </nav>
+  <main>
+    <section id="start-page">
+      <h1>
+        Welcome to the <span>Frontend Quiz!</span>
+      </h1>
+      <h2>
+        Pick a subject to get started.
+      </h2>
+  
+      <!-- Quiz menu start -->
+      <button class="html-button">HTML</button>
+      <button class="css-button">CSS</button>
+      <button class="js-button">JavaScript</button>
+      <button class="acc-button">Accessibility</button>  
+      <!-- Quiz menu end -->
+    </section>
+  
+    <!-- Quiz question start -->
+    <section id="play-page">
+      <form id="form">
+        <div class="progress">
+          Question <span id="progress-num"></span>of 10
+        </div>
+        <div class="question-area">
+          <p id="question"></p>
+        </div>
+        <label for="answer-A">
+          <input type="radio" id="answer_A" name="answer" value="A">
+          <span>A</span>
+          <span class="answer-text"></span>
+        </label>
+        <label for="answer-B">
+          <input type="radio" id="answer_D" name="answer" value="B">
+          <span>B</span>
+          <span class="answer-text"></span>
+        </label>
+        <label for="answer-C">
+          <input type="radio" id="answer_D" name="answer" value="C">
+          <span>C</span>
+          <span class="answer-text"></span>
+        </label>
+        <label for="answer-D">
+          <input type="radio" id="answer_D" name="answer" value="D">
+          <span>D</span>
+          <span class="answer-text"></span>
+        </label>
+        <button type="submit">Submit answer</button>
+      </form>  
+    </section>
+  
+    <!-- Quiz question end -->
+  
+    <!-- Quiz completed start -->
+    <section id="result-page">
+      <h1>
+        Quiz completed<span>You scored...</span>
+      </h1>
+      <div class="result-area">
+        <span class="score"></span>
+        <span>out of 10</span>
+      </div>
+      <button id="play-again">Play Again</button>
+    </section>
+    <!-- Quiz completed end -->
+  </main>
+
+</body>
+</html>
