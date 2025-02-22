@@ -1,15 +1,17 @@
 const form = document.getElementById('form');
-const submit_button = form.querySelector('button[type="submit"]')
 const start_page = document.getElementById('start-page');
 const play_page = document.getElementById('play-page');
 const result_page = document.getElementById('result-page');
 
+const submit_button = form.querySelector('button[type="submit"]')
 const progress_num = document.getElementById('progress-num');
 const question = document.getElementById('question');
 const options = form.querySelectorAll('.answer-text');
 const play_again = document.getElementById('play-again');
 const labels = Array.from(form.querySelectorAll('label'));
 const score_area = result_page.querySelector('.score');
+const progress_bar = document.querySelector('progress');
+const category_areas = Array.from(document.querySelectorAll('.category-area'));
 
 let Qset; //all the questions 
 let current_question;
@@ -36,6 +38,24 @@ const reset_counters = () => {
     answer_revealed = false;
 }
 
+const clearCategoryAreas = () => {
+    for(let area of category_areas) {
+        let icon = area.querySelector('.category-icon'); 
+        icon.classList = []; //clear the classes
+        icon.classList.add('category-icon');
+        area.querySelector('.category-name').innerText = '';    
+    }
+}
+const setCategoryAreas = (category) => {
+    for(let area of category_areas) {
+        let icon = area.querySelector('.category-icon'); 
+        icon.classList = []; //clear the classes
+        icon.classList.add('category-icon');
+        icon.classList.add(category.toLowerCase() + '-icon');
+        area.querySelector('.category-name').innerText = category;
+    }
+}
+
 const initialize_quiz = (category) => {
     reset_counters();
     for(let i=0; i<Qset.quizzes.length; ++i) {
@@ -44,6 +64,12 @@ const initialize_quiz = (category) => {
             break;
         }
     }
+    setCategoryAreas(category);
+    // let icon = document.querySelector('.category-area .category-icon'); 
+    // icon.classList = []; //clear the classes
+    // icon.classList.add('category-icon');
+    // icon.classList.add(category.toLowerCase() + '-icon');
+    // document.querySelector('.category-area span').innerText = category;
 }
 
 //set the current_question. set it to null if reached the end
@@ -74,20 +100,30 @@ const show_initial_page = () => {
     start_page.classList.remove('hidden');
     play_page.classList.add('hidden');
     result_page.classList.add('hidden');
+
+    clearCategoryAreas();
+    // //remove the top icon
+    // let icon = document.querySelector('.category-area .category-icon'); 
+    // icon.classList = []; //clear the classes
+    // icon.classList.add('category-icon');
+    // document.querySelector('.category-area span').innerText = '';
 }
 const show_play_page = () => {
     start_page.classList.add('hidden');
     play_page.classList.remove('hidden');
+    result_page.classList.add('hidden');
 }
 const show_result_page = () => {
+    start_page.classList.add('hidden');
     play_page.classList.add('hidden');
     result_page.classList.remove('hidden');
 }
 
 const populate_question = () => {
     for(let label of labels) {
-        label.classList.remove('correct');
         label.classList.remove('chosen');
+        label.classList.remove('correct');
+        label.classList.remove('incorrect');
     }
     question.innerText = current_question.question;
     for(let i=0; i<options.length; ++i) {
@@ -106,7 +142,7 @@ const populate_answer = (q, choice) => {
         num_correct ++;
     } else { //answered incorrectly
         labels[answer_idx].classList.add('correct');
-        labels[choice_idx].classList.add('chosen');
+        labels[choice_idx].classList.add('incorrect');
     }
     submit_button.innerText = 'Next Question';
 }
@@ -124,6 +160,7 @@ form.addEventListener('submit', (e) => {
         } else {
             current_question = fetchQuestion(question_idx);
             question_idx++;
+
             populate_question();
         }
         form.reset();
@@ -131,6 +168,7 @@ form.addEventListener('submit', (e) => {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
         populate_answer(current_question, data['answer']);
+        progress_bar.value = question_idx;
     }
     answer_revealed = !answer_revealed; //toggle the boolean
     e.preventDefault();
@@ -147,6 +185,15 @@ document.querySelectorAll('#start-page button').forEach((elm)=> {
         show_play_page();
     });
 });
+form.querySelectorAll('input[type="radio"]').forEach(elm => {
+    elm.addEventListener('change', ()=> {
+        console.log('change', elm);
+        labels.forEach(label => {
+            label.classList.remove('chosen');
+        });
+        elm.parentNode.classList.add('chosen');
+    });
+})
 
 play_again.addEventListener('click', ()=> {
     show_initial_page();

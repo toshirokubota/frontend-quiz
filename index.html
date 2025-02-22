@@ -12,7 +12,19 @@
 </head>
 <body>
   <nav>
-
+    <div class="category-area">
+      <!-- <img src="./assets/images/icon-accessibility.svgd"/> -->
+      <div class="category-icon"></div>
+      <span class="category-name"></span>
+    </div>
+    <label class="theme-area">
+      <img src='./assets/images/icon-sun-dark.svg' alt="sun icon"/>
+      <label class="switch-theme">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+      <img src='./assets/images/icon-moon-dark.svg' alt="moon icon"/>
+    </label>
   </nav>
   <main>
     <section id="start-page">
@@ -24,41 +36,63 @@
       </h2>
   
       <!-- Quiz menu start -->
-      <button class="html-button">HTML</button>
-      <button class="css-button">CSS</button>
-      <button class="js-button">JavaScript</button>
-      <button class="acc-button">Accessibility</button>  
+      <div class="quiz-menu">
+        <button>
+          <div class="category-icon html-icon"></div>
+          <span>HTML</span>
+        </button>
+        <button>
+          <div class="category-icon css-icon"></div>
+          <!-- <img src="./assets/images/icon-css.svg" alt="css icon"/> -->
+          <span>CSS</span>
+        </button>
+        <button>
+          <div class="category-icon javascript-icon"></div>
+          <!-- <img src="./assets/images/icon-js.svg" alt="javascript icon"/> -->
+          <span>JavaScript</span>
+        </button>
+        <button>
+          <div class="category-icon accessibility-icon"></div>
+          <!-- <img src="./assets/images/icon-accessibility.svg" alt="accessibility icon"/> -->
+          <span>Accessibility</span>
+        </button>
+      </div>
       <!-- Quiz menu end -->
     </section>
   
     <!-- Quiz question start -->
     <section id="play-page">
-      <form id="form">
+      <div class="question-area">
         <div class="progress">
           Question <span id="progress-num"></span>of 10
         </div>
-        <div class="question-area">
-          <p id="question"></p>
-        </div>
+        <p id="question"></p>
+        <progress max="10" value="0"></progress>
+      </div>
+      <form id="form">
         <label for="answer-A">
-          <input type="radio" id="answer_A" name="answer" value="A" required>
-          <span>A</span>
+          <input type="radio" id="answer-A" name="answer" value="A" required>
+          <emp>A</emp>
           <span class="answer-text"></span>
+          <span class="result-icon"></span>
         </label>
         <label for="answer-B">
-          <input type="radio" id="answer_D" name="answer" value="B">
-          <span>B</span>
+          <input type="radio" id="answer-B" name="answer" value="B">
+          <emp>B</emp>
           <span class="answer-text"></span>
+          <span class="result-icon"></span>
         </label>
         <label for="answer-C">
-          <input type="radio" id="answer_D" name="answer" value="C">
-          <span>C</span>
+          <input type="radio" id="answer-C" name="answer" value="C">
+          <emp>C</emp>
           <span class="answer-text"></span>
+          <span class="result-icon"></span>
         </label>
         <label for="answer-D">
-          <input type="radio" id="answer_D" name="answer" value="D">
-          <span>D</span>
+          <input type="radio" id="answer-D" name="answer" value="D">
+          <emp>D</emp>
           <span class="answer-text"></span>
+          <span class="result-icon"></span>
         </label>
         <button type="submit">Submit answer</button>
       </form>  
@@ -72,6 +106,11 @@
         Quiz completed<span>You scored...</span>
       </h1>
       <div class="result-area">
+        <div class="category-area">
+          <!-- <img src="./assets/images/icon-accessibility.svgd"/> -->
+          <div class="category-icon"></div>
+          <span class="category-name"></span>
+        </div>
         <span class="score"></span>
         <span>out of 10</span>
       </div>
