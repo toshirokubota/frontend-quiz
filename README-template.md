@@ -101,6 +101,9 @@ Use this section to outline areas that you want to continue focusing on in futur
 ### Useful resources
 
 - (https://www.w3schools.com/howto/howto_css_switch.asp)
+- https://verpex.com/blog/website-tips/how-to-style-a-progress-bar-using-css
+- https://www.youtube.com/watch?v=rrf99Suqmd4
+
 
 - [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.

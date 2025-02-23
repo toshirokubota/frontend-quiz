@@ -2,6 +2,7 @@ const form = document.getElementById('form');
 const start_page = document.getElementById('start-page');
 const play_page = document.getElementById('play-page');
 const result_page = document.getElementById('result-page');
+const body = document.querySelector('body');
 
 const submit_button = form.querySelector('button[type="submit"]')
 const progress_num = document.getElementById('progress-num');
@@ -12,6 +13,7 @@ const labels = Array.from(form.querySelectorAll('label'));
 const score_area = result_page.querySelector('.score');
 const progress_bar = document.querySelector('progress');
 const category_areas = Array.from(document.querySelectorAll('.category-area'));
+const theme_switch = document.getElementById('theme-checkbox');
 
 let Qset; //all the questions 
 let current_question;
@@ -167,8 +169,14 @@ form.addEventListener('submit', (e) => {
     } else {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
-        populate_answer(current_question, data['answer']);
-        progress_bar.value = question_idx;
+        if(!data['answer']) { //no selection was made
+            form.classList.add('invalid');
+            e.preventDefault();
+            return false;
+        } else {
+            populate_answer(current_question, data['answer']);
+            progress_bar.value = question_idx;
+        }
     }
     answer_revealed = !answer_revealed; //toggle the boolean
     e.preventDefault();
@@ -192,12 +200,35 @@ form.querySelectorAll('input[type="radio"]').forEach(elm => {
             label.classList.remove('chosen');
         });
         elm.parentNode.classList.add('chosen');
+        form.classList.remove('invalid'); //clear the error-message
     });
-})
+});
 
 play_again.addEventListener('click', ()=> {
     show_initial_page();
-})
+});
+
+theme_switch.addEventListener('click', () => {
+    if(body.classList.contains('light-theme')) {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        body.classList.add('light-theme');
+        body.classList.remove('dark-theme');
+        localStorage.setItem('theme', 'light');
+    }
+});
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    if(savedTheme === 'light') {
+        theme_switch.checked = false;
+    } else {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+        theme_switch.checked = true;
+    }
+}
 
 //initialize views
 show_initial_page();

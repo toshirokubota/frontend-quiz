@@ -10,7 +10,7 @@
   
   <title>Frontend Mentor | Frontend quiz app</title>
 </head>
-<body>
+<body class="light-theme">
   <nav>
     <div class="category-area">
       <!-- <img src="./assets/images/icon-accessibility.svgd"/> -->
@@ -18,12 +18,14 @@
       <span class="category-name"></span>
     </div>
     <label class="theme-area">
-      <img src='./assets/images/icon-sun-dark.svg' alt="sun icon"/>
+      <img src='./assets/images/icon-sun-dark.svg' alt="sun icon" class="light-theme"/>
+      <img src='./assets/images/icon-sun-light.svg' alt="sun icon" class="dark-theme"/>
       <label class="switch-theme">
-        <input type="checkbox">
+        <input type="checkbox" id="theme-checkbox">
         <span class="slider round"></span>
       </label>
-      <img src='./assets/images/icon-moon-dark.svg' alt="moon icon"/>
+      <img src='./assets/images/icon-moon-dark.svg' alt="moon icon" class="light-theme"/>
+      <img src='./assets/images/icon-moon-light.svg' alt="moon icon" class="dark-theme"/>
     </label>
   </nav>
   <main>
@@ -31,27 +33,27 @@
       <h1>
         Welcome to the <span>Frontend Quiz!</span>
       </h1>
-      <h2>
+      <h2 class="medium-font">
         Pick a subject to get started.
       </h2>
   
       <!-- Quiz menu start -->
       <div class="quiz-menu">
-        <button>
+        <button class="strong-bg">
           <div class="category-icon html-icon"></div>
           <span>HTML</span>
         </button>
-        <button>
+        <button class="strong-bg">
           <div class="category-icon css-icon"></div>
           <!-- <img src="./assets/images/icon-css.svg" alt="css icon"/> -->
           <span>CSS</span>
         </button>
-        <button>
+        <button class="strong-bg">
           <div class="category-icon javascript-icon"></div>
           <!-- <img src="./assets/images/icon-js.svg" alt="javascript icon"/> -->
           <span>JavaScript</span>
         </button>
-        <button>
+        <button class="strong-bg">
           <div class="category-icon accessibility-icon"></div>
           <!-- <img src="./assets/images/icon-accessibility.svg" alt="accessibility icon"/> -->
           <span>Accessibility</span>
@@ -63,38 +65,42 @@
     <!-- Quiz question start -->
     <section id="play-page">
       <div class="question-area">
-        <div class="progress">
+        <div class="progress medium-font">
           Question <span id="progress-num"></span>of 10
         </div>
         <p id="question"></p>
         <progress max="10" value="0"></progress>
       </div>
-      <form id="form">
-        <label for="answer-A">
-          <input type="radio" id="answer-A" name="answer" value="A" required>
-          <emp>A</emp>
+      <form id="form" novalidate>
+        <label for="answer-A" class="strong-bg">
+          <input type="radio" id="answer-A" name="answer" value="A">
+          <emp class="shaded-bg">A</emp>
           <span class="answer-text"></span>
           <span class="result-icon"></span>
         </label>
-        <label for="answer-B">
+        <label for="answer-B" class="strong-bg">
           <input type="radio" id="answer-B" name="answer" value="B">
-          <emp>B</emp>
+          <emp class="shaded-bg">B</emp>
           <span class="answer-text"></span>
           <span class="result-icon"></span>
         </label>
-        <label for="answer-C">
+        <label for="answer-C" class="strong-bg">
           <input type="radio" id="answer-C" name="answer" value="C">
-          <emp>C</emp>
+          <emp class="shaded-bg">C</emp>
           <span class="answer-text"></span>
           <span class="result-icon"></span>
         </label>
-        <label for="answer-D">
+        <label for="answer-D" class="strong-bg">
           <input type="radio" id="answer-D" name="answer" value="D">
-          <emp>D</emp>
+          <emp class="shaded-bg">D</emp>
           <span class="answer-text"></span>
           <span class="result-icon"></span>
         </label>
         <button type="submit">Submit answer</button>
+        <div class="error-text error-font">
+          <img src="./assets/images/icon-error.svg" alt="error-icon"/>
+          <span>Please select an answer</span>
+        </p>
       </form>  
     </section>
   
@@ -105,14 +111,14 @@
       <h1>
         Quiz completed<span>You scored...</span>
       </h1>
-      <div class="result-area">
+      <div class="result-area strong-bg">
         <div class="category-area">
           <!-- <img src="./assets/images/icon-accessibility.svgd"/> -->
           <div class="category-icon"></div>
           <span class="category-name"></span>
         </div>
         <span class="score"></span>
-        <span>out of 10</span>
+        <span class="medium-font">out of 10</span>
       </div>
       <button id="play-again">Play Again</button>
     </section>
