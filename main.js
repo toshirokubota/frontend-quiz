@@ -4,7 +4,7 @@ const play_page = document.getElementById('play-page');
 const result_page = document.getElementById('result-page');
 const body = document.querySelector('body');
 
-const submit_button = form.querySelector('button[type="submit"]')
+const submit_button = document.getElementById('submit-answer');
 const progress_num = document.getElementById('progress-num');
 const question = document.getElementById('question');
 const options = form.querySelectorAll('.answer-text');
@@ -155,6 +155,7 @@ const populate_result = () => {
 
 form.addEventListener('submit', (e) => {
     //console.log('submit', e);
+    submit_button.blur();
     if(answer_revealed) {
         if(quizz_ended()) { //reached the end
             populate_result();
@@ -194,6 +195,7 @@ document.querySelectorAll('#start-page button').forEach((elm)=> {
     });
 });
 form.querySelectorAll('input[type="radio"]').forEach(elm => {
+    console.log('select', elm);
     elm.addEventListener('change', ()=> {
         console.log('change', elm);
         labels.forEach(label => {

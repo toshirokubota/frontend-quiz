@@ -15,14 +15,14 @@
     <div class="category-area">
       <!-- <img src="./assets/images/icon-accessibility.svgd"/> -->
       <div class="category-icon"></div>
-      <span class="category-name"></span>
+      <span class="category-name  smaller-font heavy-font"></span>
     </div>
     <label class="theme-area">
       <img src='./assets/images/icon-sun-dark.svg' alt="sun icon" class="light-theme"/>
       <img src='./assets/images/icon-sun-light.svg' alt="sun icon" class="dark-theme"/>
       <label class="switch-theme">
         <input type="checkbox" id="theme-checkbox">
-        <span class="slider round"></span>
+        <span class="slider round">dark theme</span>
       </label>
       <img src='./assets/images/icon-moon-dark.svg' alt="moon icon" class="light-theme"/>
       <img src='./assets/images/icon-moon-light.svg' alt="moon icon" class="dark-theme"/>
@@ -30,30 +30,32 @@
   </nav>
   <main>
     <section id="start-page">
-      <h1>
-        Welcome to the <span>Frontend Quiz!</span>
-      </h1>
-      <h2 class="medium-font">
-        Pick a subject to get started.
-      </h2>
+      <div class="section-header">
+        <h1 class="large-font light-font">
+          Welcome to the <span class="heavy-font">Frontend Quiz!</span>
+        </h1>
+        <h2 class="medium-contrast smallest-font">
+          Pick a subject to get started.
+        </h2>
+      </div>
   
       <!-- Quiz menu start -->
       <div class="quiz-menu">
-        <button class="strong-bg">
+        <button class="strong-bg smaller-font">
           <div class="category-icon html-icon"></div>
           <span>HTML</span>
         </button>
-        <button class="strong-bg">
+        <button class="strong-bg smaller-font">
           <div class="category-icon css-icon"></div>
           <!-- <img src="./assets/images/icon-css.svg" alt="css icon"/> -->
           <span>CSS</span>
         </button>
-        <button class="strong-bg">
+        <button class="strong-bg smaller-font">
           <div class="category-icon javascript-icon"></div>
           <!-- <img src="./assets/images/icon-js.svg" alt="javascript icon"/> -->
           <span>JavaScript</span>
         </button>
-        <button class="strong-bg">
+        <button class="strong-bg smaller-font">
           <div class="category-icon accessibility-icon"></div>
           <!-- <img src="./assets/images/icon-accessibility.svg" alt="accessibility icon"/> -->
           <span>Accessibility</span>
@@ -64,39 +66,39 @@
   
     <!-- Quiz question start -->
     <section id="play-page">
-      <div class="question-area">
-        <div class="progress medium-font">
-          Question <span id="progress-num"></span>of 10
+      <div class="section-header">
+        <div class="progress-text medium-contrast smallest-font">
+          Question <span id="progress-num"></span> of 10
         </div>
-        <p id="question"></p>
+        <p id="question" class="medium-font"></p>
         <progress max="10" value="0"></progress>
       </div>
       <form id="form" novalidate>
         <label for="answer-A" class="strong-bg">
           <input type="radio" id="answer-A" name="answer" value="A">
-          <emp class="shaded-bg">A</emp>
-          <span class="answer-text"></span>
+          <emp class="shaded-bg smaller-font heavy-font">A</emp>
+          <span class="answer-text smaller-font"></span>
           <span class="result-icon"></span>
         </label>
         <label for="answer-B" class="strong-bg">
           <input type="radio" id="answer-B" name="answer" value="B">
-          <emp class="shaded-bg">B</emp>
-          <span class="answer-text"></span>
+          <emp class="shaded-bg smaller-font heavy-font">B</emp>
+          <span class="answer-text smaller-font"></span>
           <span class="result-icon"></span>
         </label>
         <label for="answer-C" class="strong-bg">
           <input type="radio" id="answer-C" name="answer" value="C">
-          <emp class="shaded-bg">C</emp>
-          <span class="answer-text"></span>
+          <emp class="shaded-bg smaller-font heavy-font">C</emp>
+          <span class="answer-text smaller-font"></span>
           <span class="result-icon"></span>
         </label>
         <label for="answer-D" class="strong-bg">
           <input type="radio" id="answer-D" name="answer" value="D">
-          <emp class="shaded-bg">D</emp>
-          <span class="answer-text"></span>
+          <emp class="shaded-bg smaller-font heavy-font">D</emp>
+          <span class="answer-text smaller-font"></span>
           <span class="result-icon"></span>
         </label>
-        <button type="submit">Submit answer</button>
+        <button type="submit" id="submit-answer" class="smaller-font">Submit Answer</button>
         <div class="error-text error-font">
           <img src="./assets/images/icon-error.svg" alt="error-icon"/>
           <span>Please select an answer</span>
@@ -108,19 +110,21 @@
   
     <!-- Quiz completed start -->
     <section id="result-page">
-      <h1>
-        Quiz completed<span>You scored...</span>
-      </h1>
+      <div class="section-header">
+        <h1 class="large-font light-font">
+          Quiz completed<span class="heavy-font">You scored...</span>
+        </h1>
+      </div>
       <div class="result-area strong-bg">
         <div class="category-area">
           <!-- <img src="./assets/images/icon-accessibility.svgd"/> -->
           <div class="category-icon"></div>
-          <span class="category-name"></span>
+          <span class="category-name smaller-font heavy-font"></span>
         </div>
         <span class="score"></span>
-        <span class="medium-font">out of 10</span>
+        <span class="medium-contrast smaller-font light-font">out of 10</span>
       </div>
-      <button id="play-again">Play Again</button>
+      <button id="play-again" class="smaller-font">Play Again</button>
     </section>
     <!-- Quiz completed end -->
   </main>
