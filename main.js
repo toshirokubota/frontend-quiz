@@ -69,7 +69,7 @@ const initialize_quiz = (category) => {
     setCategoryAreas(category);
 }
 
-//set the current_question. set it to null if reached the end
+//get a question at IDX for the currently selected category
 const fetchQuestion = (idx) => {
     let q = null;
     if(category_idx >= 0 && idx < Qset.quizzes[category_idx].questions.length) {
@@ -174,6 +174,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 });
 
+//start the game
 document.querySelectorAll('#start-page button').forEach((elm)=> {
     //console.log(elm);
     elm.addEventListener('click', ()=> {
@@ -185,6 +186,8 @@ document.querySelectorAll('#start-page button').forEach((elm)=> {
         show_play_page();
     });
 });
+
+//choose an answer
 form.querySelectorAll('input[type="radio"]').forEach(elm => {
     console.log('select', elm);
     elm.addEventListener('change', ()=> {
@@ -197,10 +200,12 @@ form.querySelectorAll('input[type="radio"]').forEach(elm => {
     });
 });
 
+//play again button
 play_again.addEventListener('click', ()=> {
     show_initial_page();
 });
 
+//theme switch 
 theme_switch.addEventListener('click', () => {
     if(body.classList.contains('light-theme')) {
         body.classList.remove('light-theme');

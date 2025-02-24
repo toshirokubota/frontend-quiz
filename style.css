@@ -60,18 +60,10 @@ body.light-theme .medium-contrast {
 body.dark-theme .medium-contrast {
     color: var(--blue-grey);
 }
-/* body.light-theme .shaded-bg {
-    background-color: var(--light-grey);
-    color: var(--dark-slate);
-} */
 body.light-theme .strong-bg {
     background-color: var(--white);
     color: var(--dark-slate);
 }
-/* body.dark-theme .shaded-bg {
-    background-color: var(--light-grey);
-    color: var(--dark-slate);
-} */
 body.dark-theme .strong-bg {
     background-color: var(--medium-slate);
     color: var(--white);
