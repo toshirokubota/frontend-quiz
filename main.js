@@ -67,11 +67,6 @@ const initialize_quiz = (category) => {
         }
     }
     setCategoryAreas(category);
-    // let icon = document.querySelector('.category-area .category-icon'); 
-    // icon.classList = []; //clear the classes
-    // icon.classList.add('category-icon');
-    // icon.classList.add(category.toLowerCase() + '-icon');
-    // document.querySelector('.category-area span').innerText = category;
 }
 
 //set the current_question. set it to null if reached the end
@@ -102,13 +97,9 @@ const show_initial_page = () => {
     start_page.classList.remove('hidden');
     play_page.classList.add('hidden');
     result_page.classList.add('hidden');
+    progress_bar.value = 0;
 
     clearCategoryAreas();
-    // //remove the top icon
-    // let icon = document.querySelector('.category-area .category-icon'); 
-    // icon.classList = []; //clear the classes
-    // icon.classList.add('category-icon');
-    // document.querySelector('.category-area span').innerText = '';
 }
 const show_play_page = () => {
     start_page.classList.add('hidden');
